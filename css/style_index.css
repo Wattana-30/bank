@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    overflow: hidden;
+
+}
+.container{
+    width: 100%;
+    min-height: 20vh;
+
+
+}
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    height: 80px;
+    line-height: 80px;
+    z-index: 111;
+    background-color: rgb(226, 226, 226);
+}
+i{
+    margin-top: 15px;
+    
+}
+.logo{
+    display: flex;
+    font-size: 40px;
+    font-weight: 800;
+    color: #3d535f;
+    letter-spacing: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    
+}
+b{
+    font-size: 70px;
+    color: #7f00ff;
+}
+
+.navItem{
+    display: flex;
+}
+
+.navItem li{
+    list-style: none;
+    margin: 0 15px;
+}
+.navItem li a{
+    font-size: 25px;
+    color: #3d535f;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.navItem li:hover a{
+    color: #7f00ff;
+}
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    overflow: hidden;
+}
+.cols{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.topline{
+    display: block;
+    position: relative;
+    font-size: 35px;
+    letter-spacing: 5px;
+    color: #3d535f;
+}
+.topline::after{
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 45px;
+    bottom: 10px;
+    background-color: #7f00ff;
+}
+h1{
+    display: block;
+    font-size: 3em;
+    font-weight: 900;
+    color: #3d535f;
+}
+p{
+    display: block;
+    color: #3d535f;
+}
+.multiText{
+    color: #7f00ff;
+    text-transform: capitalize;
+}
+.imgbox{
+    position: 100%;
+    width: 100%;
+    height: 100%;
+}
+.imgbox img{
+    font-size: 200px;
+    color: #3d535f;
+    position: relative;
+    height: 400px;
+    width: 400px;
+    right: -10px;
+    top: 10px;
+
+}
+
+.manu{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;
+    
+}
+.manu input{
+
+    width: 140px;
+    height: 40px;
+    border-radius: 40px;
+    border: none;
+    background: #7f00ff;
+    color: aliceblue;
+}
+.manu input:hover{
+    background-color: #3d535f;
+    font-size: 15px;
+}

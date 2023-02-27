@@ -55,7 +55,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // การแสดงผลเป็นตาราง
     if ($result->num_rows > 0) {
         echo "<table>";
-        echo "<tr><th>Account Number</th><th>Transaction Type</th><th>Amount</th><th>Transaction Date</th></tr>";
+        echo "<tr>
+        <th>Account Number</th>
+        <th>Transaction Type</th>
+        <th>Amount</th>
+        <th>Transaction Date</th>
+        </tr>";
         while($row = $result->fetch_assoc()) {
           $transaction_type = $row["transaction_type"] == "deposit" ? "เงินเข้า" : "เงินออก";
           $amount = $row['amount'];
@@ -64,7 +69,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
           } elseif ($transaction_type == "เงินออก") {
             $symbol = "-";
           }
-          echo "<tr><td>".$row["account_number"]."</td><td>".$transaction_type."</td><td>".$symbol.$amount."</td><td>".$row["transaction_date"]."</td></tr>";
+          echo "<tr>
+          <td>".$row["account_number"]."</td>
+          <td>".$transaction_type."</td>
+          <td>".$symbol.$amount."</td>
+          <td>".$row["transaction_date"]."</td>
+          </tr>";
         }
         echo "</table>";
       } else {

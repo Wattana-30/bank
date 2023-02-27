@@ -4,17 +4,20 @@ require_once 'config/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $account_number = $_POST['account_number'];
-  $deposit_amount = $_POST['deposit_amount'];
+  $password = $_POST['password'];
 
   // ตรวจสอบว่าหมายเลขบัญชีนี้มีอยู่ในฐานข้อมูลหรือไม่
   $sql = "SELECT * FROM account WHERE account_number = '$account_number'";
+  $sql = "SELECT * FROM account WHERE  password = '$password'";
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) == 0) {
-    echo "<script>alert('ไม่พบบัญชีนี้ในระบบ')</script>";
+    echo "<script>alert('ไม่พบบัญชีนี้ในระบบ หรือรหัสผ่านไม่ถูกต้อง')</script>";
     echo "<script>window.location = 'deposit.php'</script>";
     exit;
   } else {
+    
+
     // ดึงข้อมูลบัญชีจากเลขบัญชี
     $sql = "SELECT balance FROM account WHERE account_number = '$account_number'";
     $result = mysqli_query($conn, $sql);

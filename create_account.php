@@ -8,10 +8,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $email = $_POST["email"];
     $balance = $_POST["balance"];
+    $password = $_POST["password"];
+    $image_name = $_FILES['image']['name'];
+    $image_temp =$_FILES['image']['tmp_name'];
+
+    $image_dir = "profile_image/";
+
 
     // ค้นหาข้อมูลจากฐานข้อมูล
     $sql = "SELECT * FROM account WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
+
 
     // ตรวจสอบว่ามีข้อมูลอีเมลที่ตรงกันหรือไม่
     if (mysqli_num_rows($result) > 0) {
@@ -20,8 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>window.location = 'account.php'</script>";
         exit();
     } else {
+        if(move_uploaded_file($image_temp, $image_name)){
         // เพิ่มข้อมูลใหม่ลงในฐานข้อมูล
-        $sql = "INSERT INTO account (account_name, email, balance) VALUES ('$name', '$email', $balance)";
+        $sql = "INSERT INTO account (account_name, email, balance, image, password) VALUES ('$name', '$email', $balance, '$image_name', $password)";
         mysqli_query($conn, $sql);
 
         // รับค่า account_number ที่เพิ่งเพิ่มเข้าไป
@@ -41,5 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('สร้างบัญชีเสร็จแล้ว หมายเลขบัญชีของคุณคือ $account_number')</script>";
         echo "<script>window.location = 'index.php'</script>";
         exit();
+        }
     }
 }

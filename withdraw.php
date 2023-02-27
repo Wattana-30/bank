@@ -30,8 +30,8 @@
     <label for="customer_name"> Account Number:</label>
   </div>
   <div class="inputbox">
-    <input type="number" id="initial_deposit" name="withdraw_amount">
-    <label for="initial_deposit"> Withdraw Amount:</label>
+    <input type="password" name="password">
+    <label for="initial_deposit"> Password:</label>
   </div>
   <button type="submit">ถอนเงิน</button>
 </form>

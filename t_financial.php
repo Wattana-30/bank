@@ -1,3 +1,8 @@
+
+<?php 
+session_start();
+require_once 'config/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +24,7 @@
   </nav>
   
 <?php 
-session_start();
-require_once 'config/db.php';
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // รับค่าจากฟอร์ม
     $account_number = $_POST['account_number'];
